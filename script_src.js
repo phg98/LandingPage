@@ -13,8 +13,9 @@ function formSubmit(event) {
 
   //var formData = new FormData(event.target);
   var formData = {};
-  formData['serverId'] = document.getElementById('serverId').value;
+  formData['serverName'] = document.getElementById('serverName').value;
   formData['timeout'] = document.getElementById('timeout').value
+  formData['phoneNumber'] = document.getElementById('phoneNumber').value
 
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(formData)); // create FormData from form that triggered event
