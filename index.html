@@ -28,9 +28,10 @@
             </p>
             <form id='AddServer' method="post" action="http://localhost:3000/users">
                 <div>
-                <input id="serverName" name="serverName" placeholder="서버이름">
-                <input id="timeout" name="timeout" placeholder="실행주기(초)">
-                <input id="phoneNumber" name="phoneNumber" placeholder="전화번호 +8210xxxxxxxx">
+                <p><label>서버이름</label><br><input id="serverName" name="serverName" placeholder="서버이름"><button id="searchServer" onclick="SearchServer()">검색</button></p>
+                <p><label>실행주기(초)</label><br><input id="timeout" name="timeout" placeholder="실행주기(초)"></p>
+                <p><label>전화번호</label><br><input id="phoneNumber" name="phoneNumber" placeholder="전화번호 +8210xxxxxxxx"></p>
+                <p><label>이메일</label><br><input id="e-mail" name="email" placeholder="email@company.com"></p>
                 <button type="submit">등록</button>
                 </div>
             </form>
