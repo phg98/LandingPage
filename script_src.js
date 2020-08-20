@@ -31,15 +31,17 @@ function attachFormSubmitEvent(formId) {
 attachFormSubmitEvent('AddServer')
 
 function SearchServer() {
-  var serverName = document.getElementById('serverName').textContent
+  var serverName = document.getElementById('serverName').value
   var request = new XMLHttpRequest();
   
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE) {
-      if (request.status === 200) {
-        alert(request.responseText);
+      if (request.status === 200) {        
+        document.getElementById('serverName').value = JSON.parse(request.responseText)[0].serverName
+        document.getElementById('timeout').value = JSON.parse(request.responseText)[0].timeout
+        document.getElementById('phoneNumber').value = JSON.parse(request.responseText)[0].phoneNumber
       } else {
-        alert('request에 뭔가 문제가 있어요.');
+        alert('검색에 실패하였습니다.');
       }
     }
   }
