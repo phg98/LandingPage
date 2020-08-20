@@ -1,4 +1,5 @@
-var url = "http://127.0.0.1:3000";
+//var url = "http://127.0.0.1:3000";
+var url = "http://api.myserverdown.com:3000";
 
 function formSubmit(event) {
   var request = new XMLHttpRequest();
