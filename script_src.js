@@ -1,7 +1,7 @@
 var url = "http://127.0.0.1:3000";
 switch (window.location.hostname) {
   case "test.myserverdown.com":
-    url = "api.myserverdown.com:3000"
+    url = "http://api.myserverdown.com:3000"
     break;
 }
 
