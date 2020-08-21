@@ -6,6 +6,8 @@ switch (window.location.hostname) {
 }
 
 function formSubmit(event) {
+  
+  event.preventDefault();
   var request = new XMLHttpRequest();
   request.open('POST', url+'/users', true);
   request.onload = function () { // request successful
@@ -22,10 +24,10 @@ function formSubmit(event) {
   formData['serverName'] = document.getElementById('serverName').value;
   formData['timeout'] = document.getElementById('timeout').value
   formData['phoneNumber'] = document.getElementById('phoneNumber').value
+  formData['email'] = document.getElementById('email').value
 
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(formData)); // create FormData from form that triggered event
-  event.preventDefault();
 }
 
 // and you can attach form submit event like this for example
@@ -42,9 +44,10 @@ function SearchServer() {
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE) {
       if (request.status === 200) {        
-        document.getElementById('serverName').value = JSON.parse(request.responseText)[0].serverName
-        document.getElementById('timeout').value = JSON.parse(request.responseText)[0].timeout
-        document.getElementById('phoneNumber').value = JSON.parse(request.responseText)[0].phoneNumber
+        document.getElementById('serverName').value = JSON.parse(request.responseText)[0].serverName || ''
+        document.getElementById('timeout').value = JSON.parse(request.responseText)[0].timeout || ''
+        document.getElementById('phoneNumber').value = JSON.parse(request.responseText)[0].phoneNumber || ''
+        document.getElementById('email').value = JSON.parse(request.responseText)[0].email || ''
       } else {
         alert('검색에 실패하였습니다.');
       }
