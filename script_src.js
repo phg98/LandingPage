@@ -48,7 +48,10 @@ function SearchServer() {
         document.getElementById('timeout').value = JSON.parse(request.responseText)[0].timeout || ''
         document.getElementById('phoneNumber').value = JSON.parse(request.responseText)[0].phoneNumber || ''
         document.getElementById('email').value = JSON.parse(request.responseText)[0].email || ''
-      } else {
+      } else if (request.status === 429) {
+        alert('요청이 너무 많으니 잠시후에 다시 시도해 주세요.');
+      }
+      else {
         alert('검색에 실패하였습니다.');
       }
     }
