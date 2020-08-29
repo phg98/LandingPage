@@ -1,8 +1,10 @@
-var url = "http://127.0.0.1:3000";
-switch (window.location.hostname) {
-  case "test.myserverdown.com":
-    url = "http://api.myserverdown.com:3000"
-    break;
+var url;
+console.log(window.location.hostname)
+if (window.location.hostname.includes('localhost')) {
+  url = "http://127.0.0.1:3000";
+} 
+else {
+  url = "http://api.myserverdown.com:3000"
 }
 
 function formSubmit(event) {
