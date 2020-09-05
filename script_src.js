@@ -4,8 +4,10 @@ if (window.location.hostname.includes('localhost')) {
   url = "http://127.0.0.1:3000";
 } 
 else {
-  url = "http://api.myserverdown.com:3000"
+  //url = "http://api.myserverdown.com:3000"
+  url = "https://hb-api-phg98.herokuapp.com"
 }
+console.log('API server is ' + url)
 
 function formSubmit(event) {
   
