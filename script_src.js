@@ -7,7 +7,7 @@ else {
   //url = "http://api.myserverdown.com:3000"
   url = "https://hb-api-phg98.herokuapp.com"
 }
-console.log('API server is ' + url)
+console.log('API server is ' + url);
 
 function formSubmit(event) {
   
