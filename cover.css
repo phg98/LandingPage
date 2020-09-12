@@ -108,6 +108,70 @@ body div {
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
+
+/*
+ * Modal Form
+ */
 .modal-content{
   background-color: #6ba292;
+}
+
+.form-group .form-inline i {
+  position: absolute;
+  top: 40px;
+  right: 70px;
+}
+
+.form-group i {
+  visibility: hidden;
+  position: absolute;
+  top: 150px;
+  right: 20px;
+}
+
+.form-group small {
+  /* visibility: hidden; */
+  color: red;
+  bottom: 0px;
+  left: 0px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+button#submit {
+  border: 2px solid;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-group.success input {
+  border: 2px solid green;
+}
+
+
+.form-group.error input {
+  border: 2px solid red;
+}
+
+.form-group.success i.fa-check-circle {
+  visibility: visible;
+  color: green;
+}
+
+.form-group.error i.fa-exclamation-circle {
+  visibility: visible;
+  color: red;
+}
+
+.form-group.error small {
+  visibility: visible;
+  color: red;
+  bottom: 0px;
+  left: 0px;
 }

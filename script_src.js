@@ -9,9 +9,19 @@ else {
 }
 console.log('API server is ' + url);
 
+let serverName = document.getElementById('serverName')
+let timeout = document.getElementById('timeout')
+let phoneNumber = document.getElementById('phoneNumber')
+let email = document.getElementById('email')
+
 function formSubmit(event) {
   
   event.preventDefault();
+
+  if (!CheckInputs()) {
+    return;
+  }
+
   var request = new XMLHttpRequest();
   request.open('POST', url+'/users', true);
   request.onload = function () {
@@ -40,6 +50,59 @@ function formSubmit(event) {
 
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(formData)); // create FormData from form that triggered event
+}
+
+function CheckInputs() {
+  let serverNameValue = serverName.value.toString().trim();
+  let timeoutValue = timeout.value.toString().trim();
+  let emailValue = email.value.toString().trim();
+  let phoneNumberValue = phoneNumber.value.toString().trim();
+
+  // if (serverNameValue == '') {
+  //   // Error
+  //   SetErrorFor(serverName, "서버이름은 필수입력 항목입니다.")
+    // return false;
+  // } 
+  // else {
+  //   SetSuccessFor(serverName)
+  // }
+  if (timeoutValue == '') {
+    // Error
+    SetErrorFor(timeout, "실행주기는 필수입력 항목입니다.")
+    return false;
+  } 
+  else {
+    SetSuccessFor(timeout)
+  }
+  if (emailValue == '') {
+    // Error
+    SetErrorFor(email, "이메일은 필수입력 항목입니다.")
+    return false;
+  } 
+  else {
+    SetSuccessFor(email)
+  }
+  if (phoneNumberValue == '') {
+    // Error
+    SetErrorFor(phoneNumber, "전화번호는 필수입력 항목입니다.")
+    return false;
+  } 
+  else {
+    SetSuccessFor(phoneNumber)
+  }
+  return true
+}
+
+function SetErrorFor(e, message) {
+  let form_group = e.parentElement
+  let small = form_group.querySelector('small')
+  form_group.className = "form-group error"
+  small.innerText = message;
+}
+
+function SetSuccessFor(e,) {
+  let form_group = e.parentElement
+  form_group.className = "form-group success"
 }
 
 // and you can attach form submit event like this for example
