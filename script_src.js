@@ -1,6 +1,6 @@
 var url;
 console.log(window.location.hostname)
-if (window.location.hostname.includes('localhost')) {
+if (window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1')) {
   url = "http://127.0.0.1:3000";
 } 
 else {
@@ -52,6 +52,7 @@ function SearchServer() {
         document.getElementById('timeout').value = JSON.parse(request.responseText)[0].timeout || ''
         document.getElementById('phoneNumber').value = JSON.parse(request.responseText)[0].phoneNumber || ''
         document.getElementById('email').value = JSON.parse(request.responseText)[0].email || ''
+        document.getElementById('serverId').value = JSON.parse(request.responseText)[0].serverId || ''
       } else if (request.status === 429) {
         alert('요청이 너무 많으니 잠시후에 다시 시도해 주세요.');
       }
@@ -76,7 +77,7 @@ function SearchServer() {
 } 
 
 function PingServer() {
-  var serverName = document.getElementById('serverName').value
+  var serverId = document.getElementById('serverId').value
   var request = new XMLHttpRequest();
   
   request.onreadystatechange = function () {
@@ -91,7 +92,7 @@ function PingServer() {
       }
     }
   }
-  request.open('GET', url+'/ping'+'/'+serverName);
+  request.open('GET', url+'/ping'+'/'+serverId);
   request.onload = function () { // request successful
     // we can use server response to our request now
     console.log(request.responseText);

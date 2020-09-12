@@ -39,10 +39,13 @@
                 <p><label>서버이름</label><br><input id="serverName" name="serverName" placeholder="서버이름">
                     <button id="searchServer" onclick="SearchServer()" class="btn btn-primary">검색</button></p>
                 <p><label>실행주기(초)</label><br><input id="timeout" name="timeout" placeholder="실행주기(초)">
-                    <button id="pingServer" onclick="PingServer()" class="btn btn-warning">핑</button></p>
                 <p><label>전화번호</label><br><input id="phoneNumber" name="phoneNumber" placeholder="전화번호 +8210xxxxxxxx"></p>
                 <p><label>이메일<br><input id="email" name="email" placeholder="email@company.com"></label></p>
                 <button type="submit">등록</button>
+
+                <p><label>서버아이디</label><br><input id="serverId" name="serverId" placeholder="서버아이디">
+                    <button id="pingServer" onclick="PingServer()" class="btn btn-warning">핑</button></p>
+
                 </div>
             </form>
         </div>
