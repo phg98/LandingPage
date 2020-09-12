@@ -17,6 +17,7 @@ function formSubmit(event) {
   request.onload = function () { // request successful
     // we can use server response to our request now
     console.log(request.responseText);
+    document.getElementById('serverId').value = JSON.parse(request.responseText).serverId || ''
   };
 
   request.onerror = function () {
