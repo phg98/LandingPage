@@ -26,10 +26,10 @@ function formSubmit(event) {
 
   //var formData = new FormData(event.target);
   var formData = {};
-  formData['serverName'] = document.getElementById('serverName').value;
-  formData['timeout'] = document.getElementById('timeout').value
-  formData['phoneNumber'] = document.getElementById('phoneNumber').value
-  formData['email'] = document.getElementById('email').value
+  formData['serverName'] = document.getElementById('serverName').value.toString();
+  formData['timeout'] = document.getElementById('timeout').value.toString();
+  formData['phoneNumber'] = document.getElementById('phoneNumber').value.toString();
+  formData['email'] = document.getElementById('email').value.toString();
 
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(formData)); // create FormData from form that triggered event
