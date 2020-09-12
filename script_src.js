@@ -14,13 +14,20 @@ function formSubmit(event) {
   event.preventDefault();
   var request = new XMLHttpRequest();
   request.open('POST', url+'/users', true);
-  request.onload = function () { // request successful
-    // we can use server response to our request now
-    console.log(request.responseText);
-    document.getElementById('serverId').value = JSON.parse(request.responseText).serverId || ''
+  request.onload = function () {
+    
+    if (request.status === 200 || request.status === 201) {
+      console.log(request.responseText);
+      document.getElementById('serverId').value = JSON.parse(request.responseText).serverId || ''
+    } else {
+      console.error(request.responseText);
+      alert(JSON.parse(request.responseText).message)
+    }
   };
 
   request.onerror = function () {
+    console.log(request.responseText);
+    alert(request.responseText)
     // request failed
   };
 
