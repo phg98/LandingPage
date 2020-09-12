@@ -48,12 +48,17 @@ function SearchServer() {
   
   request.onreadystatechange = function () {
     if (request.readyState === XMLHttpRequest.DONE) {
-      if (request.status === 200) {        
-        document.getElementById('serverName').value = JSON.parse(request.responseText)[0].serverName || ''
-        document.getElementById('timeout').value = JSON.parse(request.responseText)[0].timeout || ''
-        document.getElementById('phoneNumber').value = JSON.parse(request.responseText)[0].phoneNumber || ''
-        document.getElementById('email').value = JSON.parse(request.responseText)[0].email || ''
-        document.getElementById('serverId').value = JSON.parse(request.responseText)[0].serverId || ''
+      if (request.status === 200) {  
+        if (JSON.parse(request.responseText).length == 0) {
+          alert('요청하신 서버를 찾을 수 없습니다.')
+        } 
+        else {
+          document.getElementById('serverName').value = JSON.parse(request.responseText)[0].serverName || ''
+          document.getElementById('timeout').value = JSON.parse(request.responseText)[0].timeout || ''
+          document.getElementById('phoneNumber').value = JSON.parse(request.responseText)[0].phoneNumber || ''
+          document.getElementById('email').value = JSON.parse(request.responseText)[0].email || ''
+          document.getElementById('serverId').value = JSON.parse(request.responseText)[0].serverId || ''  
+        }
       } else if (request.status === 429) {
         alert('요청이 너무 많으니 잠시후에 다시 시도해 주세요.');
       }
