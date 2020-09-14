@@ -117,6 +117,7 @@ body div {
 }
 
 .form-group .form-inline i {
+  visibility: hidden;
   position: absolute;
   top: 40px;
   right: 70px;
@@ -175,4 +176,14 @@ button#submit {
   color: red;
   bottom: 0px;
   left: 0px;
+}
+
+.form-inline.success i.fa-check-circle {
+  visibility: visible;
+  color: green;
+}
+
+.form-inline.error i.fa-exclamation-circle {
+  visibility: visible;
+  color: red;
 }

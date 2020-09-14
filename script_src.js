@@ -58,14 +58,14 @@ function CheckInputs() {
   let emailValue = email.value.toString().trim();
   let phoneNumberValue = phoneNumber.value.toString().trim();
 
-  // if (serverNameValue == '') {
-  //   // Error
-  //   SetErrorFor(serverName, "서버이름은 필수입력 항목입니다.")
-    // return false;
-  // } 
-  // else {
-  //   SetSuccessFor(serverName)
-  // }
+  if (serverNameValue == '') {
+    // Error
+    SetErrorFor(serverName, "서버이름은 필수입력 항목입니다.")
+    return false;
+  } 
+  else {
+    SetSuccessFor(serverName)
+  }
   if (timeoutValue == '') {
     // Error
     SetErrorFor(timeout, "실행주기는 필수입력 항목입니다.")
@@ -96,13 +96,13 @@ function CheckInputs() {
 function SetErrorFor(e, message) {
   let form_group = e.parentElement
   let small = form_group.querySelector('small')
-  form_group.className = "form-group error"
+  form_group.classList.add('error')
   small.innerText = message;
 }
 
 function SetSuccessFor(e,) {
   let form_group = e.parentElement
-  form_group.className = "form-group success"
+  form_group.classList.add('success')
 }
 
 // and you can attach form submit event like this for example
