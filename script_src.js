@@ -82,14 +82,14 @@ function CheckInputs() {
   else {
     SetSuccessFor(email)
   }
-  if (phoneNumberValue == '') {
-    // Error
-    SetErrorFor(phoneNumber, "전화번호는 필수입력 항목입니다.")
-    return false;
-  } 
-  else {
-    SetSuccessFor(phoneNumber)
-  }
+  // if (phoneNumberValue == '') {
+  //   // Error
+  //   SetErrorFor(phoneNumber, "전화번호는 필수입력 항목입니다.")
+  //   return false;
+  // } 
+  // else {
+  //   SetSuccessFor(phoneNumber)
+  // }
   return true
 }
 
