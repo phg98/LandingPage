@@ -31,7 +31,7 @@ function formSubmit(event) {
       document.getElementById('serverId').value = JSON.parse(request.responseText).serverId || ''
     } else {
       console.error(request.responseText);
-      alert(JSON.parse(request.responseText).message)
+      alert(request.responseText)
     }
   };
 
