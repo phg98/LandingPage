@@ -28,6 +28,7 @@ html,
 body {
   height: 100%;
   background-color: #333;
+  word-break: keep-all;
 }
 
 body {
@@ -186,4 +187,8 @@ button#submit {
 .form-inline.error i.fa-exclamation-circle {
   visibility: visible;
   color: red;
+}
+
+div.inner {
+  text-align: center;
 }
