@@ -5,7 +5,8 @@ if (window.location.hostname.includes('localhost') || window.location.hostname.i
 } 
 else {
   //url = "http://api.myserverdown.com:3000"
-  url = "https://hb-api-phg98.herokuapp.com"
+  // url = "https://hb-api-phg98.herokuapp.com"
+  url = "https://api.heartbeat.ga"
 }
 console.log('API server is ' + url);
 
